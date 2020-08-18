@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 
+require("dotenv").config();
 const app = express();
 app.use(express.static("public"));
 
@@ -12,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Set up default mongoose connection
-const mongoDB = "mongodb://localhost:27017/my_database";
+const mongoDB = process.env.databaseConnectionLink;
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
