@@ -13,12 +13,15 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Set up default mongoose connection
-const mongoDB = process.env.databaseConnectionLink;
-mongoose.connect(mongoDB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
+// const mongoDB = process.env.databaseConnectionLink;
+mongoose.connect(
+  "mongodb+srv://admin_sumeet:Sumeet123@todocluster.lecrs.mongodb.net/my_database",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+  }
+);
 
 //mongodb Schema for storing TaskItem
 const itemSchema = {
